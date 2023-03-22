@@ -20,8 +20,8 @@ Game.create = function(){
         layer = map.createLayer(i);
     }
     layer.inputEnabled = true; // Allows clicking on the map
-    Client.askNewPlayer();
     layer.events.onInputUp.add(Game.getCoordinates, this);
+    Client.askNewPlayer();
 };
 
 Game.addNewPlayer = function(id,x,y) {
@@ -45,7 +45,3 @@ Game.movePlayer = function(id, x, y) {
     tween.to({x:x,y:y}, duration);
     tween.start();
 };
-
-var game = new Phaser.Game(800, 600, Phaser.AUTO, document.getElementById('game'));
-game.state.add('Game',Game);
-game.state.start('Game');

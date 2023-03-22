@@ -1,13 +1,11 @@
-const express = require('express');
-const app = express();
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
+var express = require('express');
+var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io').listen(server);
 
-app.use('/css',express.static(__dirname + '/resources/css'));
-app.use('/js',express.static(__dirname + '/resources/js'));
-app.use('/assets',express.static(__dirname + '/resources/assets'));
+app.use('/css',express.static(__dirname + '/css'));
+app.use('/js',express.static(__dirname + '/js'));
+app.use('/assets',express.static(__dirname + '/assets'));
 
 app.get('/',function(req,res){
     res.sendFile(__dirname+'/index.html');
