@@ -3,7 +3,13 @@
     <head>
         <meta charset="UTF-8" />
         <title>Multiplayer Game Example</title>
-        <script src="https://cdn.socket.io/1.7.3/socket.io.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+        var socket = io('http://localhost');
+        socket.on('connect', function(){});
+        socket.on('event', function(data){});
+        socket.on('disconnect', function(){});
+        </script> 
         <script type="text/javascript" src="resources/js/phaser.min.js"></script>
     </head>
     <body>
